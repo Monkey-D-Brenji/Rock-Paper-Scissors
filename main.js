@@ -10,16 +10,16 @@ function userPlay() {
   return choice;
 }
 
-function playRound(choice) {
+function playRound() {
   let compInput = computerPlay();
   let choice = userPlay();
 
   if (choice === compInput) {
     console.log("tie");
   } else if (
-    (compInput === "rock" && choice === "paper") ||
-    (compInput === "paper" && choice === "scissors") ||
-    (compInput === "scissors" && choice === "rock")
+    (compInput === "rock" && choice === "scissors") ||
+    (compInput === "paper" && choice === "rock") ||
+    (compInput === "scissors" && choice === "paper")
   ) {
     console.log(compInput + " beats " + choice + " you lose");
   } else {
