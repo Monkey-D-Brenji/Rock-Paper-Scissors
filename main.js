@@ -26,3 +26,11 @@ function playRound() {
     console.log(choice + " beats " + compInput + " you win");
   }
 }
+
+function game() {
+  for (i = 0; i < 5; i++) {
+    playRound();
+  }
+}
+
+game();
