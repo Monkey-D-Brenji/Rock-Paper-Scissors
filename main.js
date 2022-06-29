@@ -1,39 +1,28 @@
-const choice = ["rock", "paper", "scissors"];
+const choices = ["rock", "paper", "scissors"];
 
-// play round function
-function playRound() {
-  let userChoice = playerChoice();
-  let compChoice = computerChoice();
-  if (userChoice === compChoice) {
-    console.log("Tie");
+function computerPlay() {
+  return choices[Math.floor(Math.random() * choices.length)];
+}
+
+function userPlay() {
+  let choice = prompt("Pick Rock, Paper, or Scissors");
+  choice = choice.toLowerCase();
+  return choice;
+}
+
+function playRound(choice) {
+  let compInput = computerPlay();
+  let choice = userPlay();
+
+  if (choice === compInput) {
+    console.log("tie");
   } else if (
-    (userChoice === "rock" && compChoice === "scissors") ||
-    (userChoice === "paper" && compChoice === "rock") ||
-    (userChoice === "scissors" && compChoice === "paper")
+    (compInput === "rock" && choice === "paper") ||
+    (compInput === "paper" && choice === "scissors") ||
+    (compInput === "scissors" && choice === "rock")
   ) {
-    console.log("You Win!");
-  } else if (
-    (userChoice === "rock" && compChoice === "paper") ||
-    (userChoice === "paper" && compChoice === "scissors") ||
-    (userChoice === "scissors" && compChoice === "rock")
-  ) {
-    console.log("You Lose!");
+    console.log(compInput + " beats " + choice + " you lose");
+  } else {
+    console.log(choice + " beats " + compInput + " you win");
   }
 }
-
-// player choice function
-function playerChoice() {
-  let userChoice = prompt("Choose Rock, Paper, or Scissors");
-  userChoice = userChoice.toLowerCase();
-  return userChoice;
-}
-
-// computer choice function
-function computerChoice() {
-  let compChoice = choice[Math.floor(Math.random() * choice.length)];
-  return compChoice;
-}
-
-// game function
-
-playRound();
