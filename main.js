@@ -38,6 +38,8 @@ function game() {
 
   if (userScore > compScore) {
     console.log("You won! Congratulations");
+  } else if (userScore === compScore) {
+    console.log("Tied! Try again");
   } else {
     console.log("You lost! Try again");
   }
